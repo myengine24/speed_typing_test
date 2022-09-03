@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #073b4c;
+    overflow: hidden;
+    font-size: 26px;
+}
+
+h1 {
+    font-weight: bold;
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    padding: 10px 0 10px 0;
+}
+
+.word-area {
+    height: 200px;
+    border-radius: 7px;
+    padding: 20px;
+    background-color: white;
+    margin-bottom: 25px;
+}
+
+#words {
+    height: 135px;
+    overflow: hidden;
+}
+
+.calculation {
+    display: flex;
+    color: black;
+}
+
+.calculation p {
+    margin-right: 35px;
+    font-size: 16px;
+    border-right: 2px solid #cccccc;
+    padding-right: 20px;
+}
+
+.calculation span {
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+.type-counting {
+    color: #fefae0;
+    margin-right: 20px;
+}
+
+.box-timer {
+    background-color: #ef476f;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.btn-custom {
+    background-color: #06d6a0;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #22223b;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.green {
+    color: #06d6a0;
+}
+
+.red {
+    color: #ef476f;
+}
