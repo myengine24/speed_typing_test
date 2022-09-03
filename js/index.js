@@ -13,7 +13,7 @@ let slice0 = 0
 let slice1 = TOTAL_WORDS_PER_LINE
 // element kata ditempatkan
 let words_el = document.getElementById("words")
-// input kata 
+// input kata  
 let input_el = document.getElementById("typed")
 // menampung hasil ketikan (total kata, benar dan salah)
 let recap = {}
@@ -99,8 +99,9 @@ let keyUp = (data, current_html) => {
         if (e.code === "Space") {
             // saat di-"spasi" dan input kata = " ", maka data reset atau
             // dikosongkan kembali
-            if (input_el.value === " ") {
+            if (input_el.value === " " || input_el.value === "") {
                 resetData()
+                return;
                 // jika tidak
             } else {
                 // jumlahkan variable "count"
