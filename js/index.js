@@ -58,6 +58,15 @@ let resetData = () => {
     input_el.value = ""
     currentTyped = ""
 }
+// fungsi set hasil
+let setResult = (recap, total_el, wrong_el, right_el) => {
+    // element html jumlah total
+    total_el.innerHTML = Object.keys(recap).length
+    // element html jumlah benar
+    wrong_el.innerHTML = Object.values(recap).filter(rec => rec === true).length
+    // element html jumlah salah
+    right_el.innerHTML = Object.values(recap).filter(rec => rec === false).length
+}
 // hitungan waktu mundur
 let countTime = timeleft => {
     // element untuk meng-input hitungan waktu berjalan
@@ -74,11 +83,10 @@ let countTime = timeleft => {
             // berhenti atau reset, ketika waktu <= 0
             clearInterval(downloadTimer)
             // mapping object hasil ketikan, tersimpan di variable "recap", line 16
-            totalWords.innerHTML = Object.keys(recap).length
-            totalWordsRight.innerHTML = Object.values(recap).filter(rec => rec === true).length
-            totalWordsWrong.innerHTML = Object.values(recap).filter(rec => rec === false).length
+            setResult(recap, totalWords, totalWordsRight, totalWordsWrong)
             // matikan element input kata ketika waktu habis
             input_el.disabled = true
+            words_el.innerHTML = "Time Out"
         }
         // masukan data ke elemen html
         counttime_el.innerHTML = timeleft
@@ -92,9 +100,8 @@ let keyUp = (data, current_html) => {
     // sejumlah input, misalnya per 12 kata
     current_html.innerHTML = getHTMLStucture(data.slice(slice0, slice1))
     // fungsi "keyup" untuk menangkap karakter keyboard 
+    boldNextTypingWord(0)
     document.addEventListener("keyup", (e) => {
-        // menandai kata selanjutnya yang harus di ketik
-        boldNextTypingWord(length_word + 1)
         // kondisi trigger untuk tombol spasi
         if (e.code === "Space") {
             // saat di-"spasi" dan input kata = " ", maka data reset atau
@@ -110,6 +117,12 @@ let keyUp = (data, current_html) => {
                 currentTyped += input_el.value
                 // menghitung jumlah kata yang diketik
                 length_word += 1
+                // menandai kata selanjutnya yang harus di ketik
+                if (length_word === TOTAL_WORDS_PER_LINE - 1) {
+                    boldNextTypingWord(length_word);
+                } else {
+                    boldNextTypingWord(length_word + 1);
+                }
                 // jumlahkan data slice, agar index yang masuk selanjutnya 
                 // adalah kelipatan input, misalnya input per 12 kata = antriana pertama 0-11 kata, 
                 // antrian kedua 12 - 21 kata, dst.... 
@@ -136,7 +149,7 @@ let keyUp = (data, current_html) => {
         }
         // kondisi pengecekan total panjang kata dalam antrian
         // jika sudah === 11
-        if (length_word === 11) {
+        if (length_word === TOTAL_WORDS_PER_LINE - 1) {
             // length diatur kembali ke nilai default, untuk memperoleh
             // nilai yang sama pada total kata yang diketik.
             // Jika tidak, maka nilai "length_word" ankan terus bertambah
@@ -144,6 +157,7 @@ let keyUp = (data, current_html) => {
             length_word = -1
             // set soal atau target ketikan ke slicing antrian berikutnya
             current_html.innerHTML = getHTMLStucture(data.slice(slice0, slice1))
+            boldNextTypingWord(0)
         }
     })
 }

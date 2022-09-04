@@ -22,13 +22,11 @@
 
     <div class="d-flex align-content-center justify-content-center h-100">
         <div class="container">
-            <section class="main w-50">
+            <secion class="main w-50">
                 <h1>KetiKata</h1>
                 <div class="word-area">
                     <div id="words">
-                        <div class="word-spaces">
-                            <span id="ReadyGo">Ready ........</span>
-                        </div>
+                        <p>Ready ......</p>
                     </div>
                     <div class="calculation">
                         <p>Total kata <span id="total-words">0</span></p>
@@ -36,19 +34,18 @@
                         <p>Jumlah salah <span id="total-wrong">0</span></p>
                     </div>
                 </div>
-
                 <div class="input-group">
                     <input type="text" id="typed" class="form-control" value="" autocomplete="off" autocorrect="off"
-                        autocapitalize="off" spellcheck="false" required disabled>
-                    <div id="countdown" class="box-timer"> 0 </div>
-                    <button class="btn btn-secondary btn-custom" type="button" id="startTest">Start</button>
-                    <button class="btn btn-secondary btn-custom" onclick="window.location.reload()" type="button"
-                        id="reloadTest" disabled>Reload</button>
+                        autocapitalize="off" spellcheck="false" disabled>
+                        <div id="countdown" class="box-timer"> 0 </div>
+                    <button class="btn btn-secondary btn-custom" id="startTest">Start</button>
+                    <button class="btn btn-secondary btn-custom" id="reloadTest" onclick="window.location.reload()" disabled>Reload</button>
                 </div>
-            </section>
+            </secion>
         </div>
     </div>
 
+    <!-- bootstrap CDM -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
     </script>
@@ -57,7 +54,6 @@
     </script>
 
     <script src="js/index.js"></script>
-
 </body>
 
 </html>
