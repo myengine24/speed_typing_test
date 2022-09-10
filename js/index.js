@@ -99,8 +99,9 @@ let keyUp = (data, current_html) => {
     // melakukan slicing terhadap array kata yang akan masuk pertama kali
     // sejumlah input, misalnya per 12 kata
     current_html.innerHTML = getHTMLStucture(data.slice(slice0, slice1))
-    // fungsi "keyup" untuk menangkap karakter keyboard 
+    // hitamkan word index pertama saat test pertama dijalankan
     boldNextTypingWord(0)
+    // fungsi "keyup" untuk menangkap karakter keyboard 
     document.addEventListener("keyup", (e) => {
         // kondisi trigger untuk tombol spasi
         if (e.code === "Space") {
@@ -157,6 +158,7 @@ let keyUp = (data, current_html) => {
             length_word = -1
             // set soal atau target ketikan ke slicing antrian berikutnya
             current_html.innerHTML = getHTMLStucture(data.slice(slice0, slice1))
+             // hitamkan word index pertama pada antrian kata berikutnya
             boldNextTypingWord(0)
         }
     })
