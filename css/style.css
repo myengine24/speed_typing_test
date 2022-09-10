@@ -20,6 +20,7 @@ h1 {
 #words {
     height: 135px;
     overflow: hidden;
+    font-size: 1.2rem;
 }
 
 .container {
